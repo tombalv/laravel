@@ -11,6 +11,7 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
+
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-1">
@@ -43,10 +44,10 @@
                                         {{$invoice->invoice_date}}
                                     </div>
                                     <div class="col-md-3">
-                                        {{$invoice->client_name}}
+                                        {{$invoice->client->client_name}}
                                     </div>
                                     <div class="col-md-2">
-                                        {{$countries[$invoice->client_country]}}
+                                        {{$countries[$invoice->client->client_country]}}
                                     </div>
                                     <div class="col-md-1">
                                         <b>{{$invoice->invoice_amount}} eur</b>

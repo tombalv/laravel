@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class Client extends Model
 {
     use HasFactory;
 
@@ -277,10 +277,8 @@ class Invoice extends Model
         'CW' => 'Curaçao',
         'SS' => 'South Sudan',
     ];
-
-    public function client()
+    public function invoices()
     {
-        return $this->belongsTo(Client::class);
+        return $this->hasMany(Invoice::class);
     }
-
 }
