@@ -1,16 +1,16 @@
 @extends('app')
 
-@section('title', 'Hello Blade')
+@section('title', 'HELLO Page Title')
 
 @section('content')
     @if(2 == $font)
-    <h1 style="color: red ">Hello Blade </h1>
+    <h1 style="color:{{$color}}; font-family:monospace;">hello blade</h1>
     @else
-    <h1 style="color: blue ">Hello Blade </h1>
+    <h1 style="color:{{$color}};">hello blade</h1>
     @endif
     <ul>
-        @foreach($peaople as $person)
-        <li>{{$person['name']}} <i>{{$person['age']}}</i></li>
-        @endforeach
+    @foreach($people as $person)
+    <li>{{$person['name']}} <i>{{$person['age']}}</i></li>
+    @endforeach
     </ul>
 @endsection

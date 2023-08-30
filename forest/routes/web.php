@@ -10,8 +10,8 @@ use App\Http\Controllers\SumController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
@@ -19,13 +19,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/hello", function() {
-    return "Hello World! This is my first route!";
+
+Route::get('/hello', function () {
+    return 'Hello my name is Forest';
 });
 
-// Route::get("/hello/controller", [HelloController::class, "index"]);
-// Route::get("/hello-blade", [HelloController::class, "helloBlade"]);
+Route::get('/hello/22', function () {
+    return 'Hello my name is Forest and I am 22 years old';
+});
 
-Route::get("/sum", [SumController::class, "showForm"])->name("sum-form");
-Route::post("/sum", [SumController::class, "submitForm"])->name("sum-submit");
-   
+Route::get('/hello/controller/{color}', [HelloController::class, 'hello']);
+
+Route::get('/hello-blade', [HelloController::class, 'helloBlade']);
+Route::get('/bye-blade', [HelloController::class, 'byeByeBlade']);
+
+Route::get('/sum', [SumController::class, 'showForm'])->name('sum-form');
+Route::post('/sum', [SumController::class, 'submitForm'])->name('sum-submit');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

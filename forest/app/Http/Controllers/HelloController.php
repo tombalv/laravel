@@ -6,13 +6,34 @@ use Illuminate\Http\Request;
 
 class HelloController extends Controller
 {
-    public function index()
+    public function hello(Request $request, $color)
     {
-        return "Hello World! This is my first controller!";
+        dump($request->all());
+        dump($request->size);
+        // print_r($request);
+        
+        return '<h1 style="font-size:'.$request->size.'px;color:'.$color.';">Hello my name is Forest and my favorite color is ' . $color . '</h1>';
     }
 
-    public function helloBlade()
+    public function helloBlade(Request $request)
     {
-        return view("go.hello");
+        
+        $people = [
+            ['name' => 'Forest', 'age' => 22],
+            ['name' => 'Bob', 'age' => 33],
+            ['name' => 'Alice', 'age' => 44],
+        ];
+        
+        return view('go.hello', [
+            'color' => $request->color,
+            'font' => $request->font,
+            'people' => $people,
+        ]);
     }
+
+    public function byeByeBlade()
+    {
+        return view('go.bye');
+    }
+
 }
