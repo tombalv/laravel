@@ -11,7 +11,6 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-1">
